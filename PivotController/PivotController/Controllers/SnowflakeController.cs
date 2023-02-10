@@ -19,7 +19,7 @@ namespace PivotController.Controllers
         {
             using (SnowflakeDbConnection snowflakeConnection = new SnowflakeDbConnection())
             {
-                snowflakeConnection.ConnectionString = "account=fvatbos-vc83911;user=snowuser;password=Coolcomp@123;role=ACCOUNTADMIN;db=SNOWFLAKE_SAMPLE_DATA;schema=TPCDS_SF10TCL;warehouse=test;server=https://fvatbos-vc83911.snowflakecomputing.com;";
+                snowflakeConnection.ConnectionString = "<Enter your valid connection string here>";
                 snowflakeConnection.Open();
                 SnowflakeDbDataAdapter adapter = new SnowflakeDbDataAdapter("select * from CALL_CENTER", snowflakeConnection);
                 DataTable dataTable = new DataTable();
