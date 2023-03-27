@@ -4,7 +4,7 @@ PivotView.Inject(FieldList);
 
 let pivotTableObj: PivotView = new PivotView({
   dataSourceSettings: {
-    url: 'https://localhost:7132/pivot',
+    url: 'https://localhost:44378/Pivot',
     enableSorting: true,
     expandAll: false,
     dataSource: [],
