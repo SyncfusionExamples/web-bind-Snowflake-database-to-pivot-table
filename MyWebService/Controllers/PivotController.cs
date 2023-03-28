@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
-using Snowflake.Data.Client;
 using Newtonsoft.Json;
+using Snowflake.Data.Client;
 using System.Data;
 
-namespace PivotController.Controllers
+namespace MyWebService.Controllers
 {
     [ApiController]
     [Route("[controller]")]
