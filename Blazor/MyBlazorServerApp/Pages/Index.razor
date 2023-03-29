@@ -1,0 +1,62 @@
+﻿@page "/"
+@using Syncfusion.Blazor.PivotView
+@using Snowflake.Data.Client
+@using System.Data
+
+<SfPivotView TValue="SnowflakeService" Width="1000" Height="300" ShowFieldList="true">
+    <PivotViewDataSourceSettings TValue="SnowflakeService" DataSource="@dataSource" ExpandAll=false EnableSorting=true>
+        <PivotViewColumns>
+            <PivotViewColumn Name="CC_CALL_CENTER_SK"></PivotViewColumn>
+            <PivotViewColumn Name="CC_SQ_FT"></PivotViewColumn>
+        </PivotViewColumns>
+        <PivotViewRows>
+            <PivotViewRow Name="CC_REC_START_DATE"></PivotViewRow>
+        </PivotViewRows>
+        <PivotViewValues>
+            <PivotViewValue Name="CC_EMPLOYEES"></PivotViewValue>
+        </PivotViewValues>
+        <PivotViewFormatSettings>
+            <PivotViewFormatSetting Name="CC_EMPLOYEES" Format="N0"></PivotViewFormatSetting>
+        </PivotViewFormatSettings>
+    </PivotViewDataSourceSettings>
+    <PivotViewGridSettings ColumnWidth="120"></PivotViewGridSettings>
+</SfPivotView>
+
+@code {
+    private List<SnowflakeService> dataSource;
+
+    protected override void OnInitialized()
+    {
+        using (SnowflakeDbConnection snowflakeConnection = new SnowflakeDbConnection())
+        {
+            List<SnowflakeService> snowflakeList = new List<SnowflakeService>();
+            // Replace with your own connection string.
+            snowflakeConnection.ConnectionString = "<Enter your valid connection string here>";
+            snowflakeConnection.Open();
+            SnowflakeDbDataAdapter adapter = new SnowflakeDbDataAdapter("select * from CALL_CENTER", snowflakeConnection);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            snowflakeConnection.Close();
+            snowflakeList = dataTable.AsEnumerable().Select(r => new SnowflakeService
+            {
+                CC_CALL_CENTER_SK = r.Field<int>("CC_CALL_CENTER_SK"),
+                CC_CALL_CENTER_ID = r.Field<string>("CC_CALL_CENTER_ID"),
+                CC_EMPLOYEES = r.Field<int?>("CC_EMPLOYEES"),
+                CC_SQ_FT = r.Field<int>("CC_SQ_FT"),
+                CC_REC_END_DATE = r.Field<DateTime?>("CC_REC_END_DATE"),
+                CC_REC_START_DATE = r.Field<DateTime?>("CC_REC_START_DATE"),
+            }).ToList();
+            this.dataSource = snowflakeList;
+        }
+    }
+
+    public class SnowflakeService
+    {
+        public int CC_CALL_CENTER_SK { get; set; }
+        public string CC_CALL_CENTER_ID { get; set; }
+        public int? CC_EMPLOYEES { get; set; }
+        public int CC_SQ_FT { get; set; }
+        public DateTime? CC_REC_END_DATE { get; set; }
+        public DateTime? CC_REC_START_DATE { get; set; }
+    }
+}
