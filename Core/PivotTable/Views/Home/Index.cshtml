@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<ejs-pivotview id="PivotView" height="300" showFieldList="true">
+    <e-datasourcesettings Url="https://localhost:44378/Pivot" expandAll="false" enableSorting="true">
+        <e-columns>
+            <e-field name="CC_COUNTRY" caption="Country"></e-field>
+        </e-columns>
+        <e-rows>
+            <e-field name="CC_STATE" caption="State"></e-field>
+            <e-field name="CC_CITY" caption="City"></e-field>
+        </e-rows>
+        <e-values>
+            <e-field name="CC_COMPANY" caption="Company"></e-field>
+            <e-field name="CC_EMPLOYEES" caption="Employees"></e-field>
+            <e-field name="CC_TAX_PERCENTAGE" caption="Percentage"></e-field>
+        </e-values>
+    </e-datasourcesettings>
+</ejs-pivotview>
