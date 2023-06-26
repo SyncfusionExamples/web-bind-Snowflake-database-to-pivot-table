@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@Html.EJS().PivotView("PivotView").Height("300").DataSourceSettings(
+        dataSource => dataSource.Url("https://localhost:44378/Pivot"
+    ).ExpandAll(false).EnableSorting(true
+    ).Columns(columns =>
+    {
+        columns.Name("CC_COUNTRY").Caption("Country").Add();
+    }).Rows(rows =>
+    {
+        rows.Name("CC_STATE").Caption("State").Add();
+        rows.Name("CC_CITY").Caption("City").Add();
+    }).Values(values =>
+    {
+        values.Name("CC_COMPANY").Caption("Company").Add();
+        values.Name("CC_EMPLOYEES").Caption("Employees").Add();
+        values.Name("CC_TAX_PERCENTAGE").Caption("Percentage").Add();
+    })).ShowFieldList(true).Render()
