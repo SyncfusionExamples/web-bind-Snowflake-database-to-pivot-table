@@ -190,26 +190,24 @@ Contributions welcome. Suggested workflow:
 
 ## 📜 License & Support
 
-This is a commercial product subject to the Syncfusion End User License Agreement (EULA).
+This is a **commercial product** subject to the Syncfusion End User License Agreement (EULA).
 
-Free Community License is available for qualifying users/organizations:
+**Free Community License** is available for qualifying users/organizations:  
+- Annual gross revenue < $1 million USD  
+- 5 or fewer total developers  
+- 10 or fewer total employees  
 
-* Annual gross revenue < $1 million USD
-* 5 or fewer total developers
-* 10 or fewer total employees
-
-The community license allows free use in both internal and commercial applications under these conditions.
+The community license allows free use in both internal and commercial applications under these conditions.  
 No registration or approval is required — just comply with the terms.
 
-Paid Licenses are required for:
+**Paid Licenses** are required for:  
+- Larger organizations  
+- Teams exceeding the community license limits  
+- Priority support, custom patches, or on-premise deployment options  
 
-* Larger organizations
-* Teams exceeding the community license limits
-* Priority support, custom patches, or on-premise deployment options
-
-Purchase options and pricing: https://www.syncfusion.com/sales/products
-30-day free trial (full features, no credit card required): https://www.syncfusion.com/downloads/essential-js2
-Community License details & FAQ: https://www.syncfusion.com/products/communitylicense
+Purchase options and pricing: https://www.syncfusion.com/sales/products  
+30-day free trial (full features, no credit card required): https://www.syncfusion.com/downloads/essential-js2  
+Community License details & FAQ: https://www.syncfusion.com/products/communitylicense  
 Full EULA: https://www.syncfusion.com/eula/es/
 
 © 2026 Syncfusion, Inc. All Rights Reserved.
